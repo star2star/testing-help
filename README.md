@@ -2,11 +2,14 @@
 
 ## Introduction
 
-This document contains some solutions for common issues that we have come across while unit testing our React components. Our test suite uses Jest CLI, Enzyme, and SinonJS.
+This document contains some solutions for common issues that we have come across while unit testing our React components. Our test suite utilizes [Jest CLI](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/index.html), and [SinonJS](http://sinonjs.org/).
 
 ## Table of Contents
 - [Testing Props inside a class method](#testing-props-inside-a-class-method)
 - [Testing user input](#testing-user-input)
+- [Testing componentWillReceiveProps](#testing-componentwillreceiveprops)
+- [Testing shouldComponentUpdate](#testing-shouldcomponentupdate)
+- [Testing functions with setTimeout](#testing-functions-with-settimeout)
 
 ## Testing Props inside a class method
 
@@ -156,3 +159,31 @@ input1.simulate('change', { target: { value: 'kc@gmail.com'}});
 
 ```
 
+## Testing componentWillReceiveProps
+- Coming soon.
+
+## Testing shouldComponentUpdate
+- 
+
+```html
+  it('rerenders when props have changed', () => {
+    const spy = sinon.spy(Button.prototype, "render");
+
+    const wrapper = shallow(<Button cbClick={funFunc} buttonLabel="John Adams spends the summer with his family" svgType="SettingsIconSVG" svgPos="bottom" />);
+
+    // render is always called once so before setting any props check that it was called once.
+    expect(spy.calledOnce).toEqual(true);
+
+    // After setting props check to see if render has been called twice (initial render and render after props have changed)
+    wrapper.setProps({ buttonLabel: "Work"});
+    expect(spy.calledTwice).toEqual(true);
+
+    // Now checking to see if render is called again even though props are the same. Should be false.
+    wrapper.setProps({ buttonLabel: "Work"});
+    expect(spy.calledThrice).toEqual(false);
+  });
+
+```
+
+## Testing functions with setTimeout
+- Coming soon.
