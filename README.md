@@ -7,9 +7,10 @@ This document contains some solutions for common issues that we have come across
 ## Table of Contents
 - [Testing Props inside a class method](#testing-props-inside-a-class-method)
 - [Testing user input](#testing-user-input)
-- [Testing componentWillReceiveProps](#testing-componentwillreceiveprops)
+- [Testing componentWillReceiveProps (coming soon)](#testing-componentwillreceiveprops)
 - [Testing shouldComponentUpdate](#testing-shouldcomponentupdate)
-- [Testing functions with setTimeout](#testing-functions-with-settimeout)
+- [Testing functions with setTimeout (coming soon)](#testing-functions-with-settimeout)
+- [Common simulate() arguments](#common-simulate-arguments)
 
 ## Testing Props inside a class method
 
@@ -163,7 +164,7 @@ input1.simulate('change', { target: { value: 'kc@gmail.com'}});
 - Coming soon.
 
 ## Testing shouldComponentUpdate
-- 
+
 
 ```html
   it('rerenders when props have changed', () => {
@@ -187,3 +188,86 @@ input1.simulate('change', { target: { value: 'kc@gmail.com'}});
 
 ## Testing functions with setTimeout
 - Coming soon.
+
+## Common simulate arguments
+
+Enzyme provides a simulate() function that takes in two arguments. The first is what DOM event to simulate and the second is an optional parameters. We have compiled a list of commonly used simulate() arguments 
+
+#### Testing a click
+ 
+ ```js
+ sinon.simulate('click')
+ ```
+ 
+ #### Testing onFocus
+ 
+ ```js
+ sinon.simulate('focus')
+ ```
+ 
+ #### Testing onBlur
+ 
+ ```js
+ sinon.simulate('blur')
+ ```
+ 
+ #### Testing onChange
+ 
+ ```js
+ sinon.simulate('change', { target: {value: 'password1'})
+ ```
+ 
+ #### Testing onMouseDown
+ 
+ ```js
+ sinon.simulate('mousedown')
+ ```
+ 
+ #### Testing onMouseUp
+ 
+ ```js
+ sinon.simulate('mouseup')
+ ```
+ 
+ #### Testing onMouseEnter
+ 
+ ```js
+ sinon.simulate('mouseenter')
+ ```
+ 
+ #### Testing onMouseLeave
+ 
+ ```js
+sinon.simulate('mouseleave')
+ ```
+ 
+ #### Testing onMouseOver
+ 
+ ```js
+ sinon.simulate('mouseover')
+ ```
+ 
+  #### Testing onKeyPress
+ 
+ ```js
+ sinon.simulate('keypress')
+ 
+ sinon.simulate('keypress', { keycode: 32 }); // enter
+ ``` 
+ 
+#### Testing onKeyDown
+ 
+ ```js
+ sinon.simulate('keydown')
+ 
+ sinon.simulate('keydown', { keycode: 32 }); // enter
+ ```
+  
+#### Testing onKeyUp
+ 
+ ```js
+ sinon.simulate('keyup')
+ 
+ sinon.simulate('keyup', { keycode: 13 }); // spacebar
+ 
+ ``` 
