@@ -161,11 +161,10 @@ input1.simulate('change', { target: { value: 'kc@gmail.com'}});
 ```
 
 ## Testing componentWillReceiveProps
-- Coming soon.
+
+To ensure that the state updates properly with a new change when ther props acts as the default. 
 
 ## Testing shouldComponentUpdate
-
-
 
 ```html
   it('rerenders when props have changed', () => {
