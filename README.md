@@ -166,9 +166,10 @@ input1.simulate('change', { target: { value: 'kc@gmail.com'}});
 ## Testing shouldComponentUpdate
 
 
+
 ```html
   it('rerenders when props have changed', () => {
-    const spy = sinon.spy(Button.prototype, "render");
+    const spy = sinon.spy(Button.prototype, "render"); // if shouldComponentUpdate ends up being true, the render method will be fired.
 
     const wrapper = shallow(<Button cbClick={funFunc} buttonLabel="John Adams spends the summer with his family" svgType="SettingsIconSVG" svgPos="bottom" />);
 
